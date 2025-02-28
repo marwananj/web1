@@ -1,0 +1,522 @@
+/* Animation Styles */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Slide In From Left Animation */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide In From Right Animation */
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Glow Animation */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(74, 108, 247, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(74, 108, 247, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(74, 108, 247, 0.3);
+  }
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* Border Animation */
+@keyframes borderPulse {
+  0% {
+    border-color: rgba(74, 108, 247, 0.3);
+  }
+  50% {
+    border-color: rgba(74, 108, 247, 0.8);
+  }
+  100% {
+    border-color: rgba(74, 108, 247, 0.3);
+  }
+}
+
+/* Typing Cursor Animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Apply Animations to Elements */
+.header {
+  animation: fadeIn 1s ease;
+}
+
+.name {
+  position: relative;
+  animation: fadeIn 1s ease;
+}
+
+.name::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4a6cf7;
+  animation: expandWidth 1s ease forwards 1s;
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.social-links {
+  animation: fadeIn 1s ease 0.3s both;
+}
+
+.social-link {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #4a6cf7;
+}
+
+.social-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #4a6cf7;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover::after {
+  transform: translateX(0);
+}
+
+.email-btn {
+  transition: all 0.3s ease;
+}
+
+.email-btn:hover {
+  background-color: #4a6cf7;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.content-left {
+  animation: slideInLeft 1s ease;
+}
+
+.content-right {
+  animation: slideInRight 1s ease;
+}
+
+.profile-image-container {
+  animation: fadeIn 1s ease, float 6s ease-in-out infinite;
+  position: relative;
+}
+
+.profile-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(74, 108, 247, 0.4);
+  animation: glow 3s infinite;
+}
+
+.title {
+  animation: slideUp 1s ease 0.2s both;
+  position: relative;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #333;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+  vertical-align: text-bottom;
+}
+
+.description {
+  animation: slideUp 1s ease 0.4s both;
+}
+
+.buttons {
+  animation: slideUp 1s ease 0.6s both;
+}
+
+.section-title {
+  animation: slideUp 0.8s ease both;
+  position: relative;
+}
+
+.section-description {
+  animation: fadeIn 1s ease 0.2s both;
+}
+
+.skill-item {
+  animation: fadeIn 0.8s ease both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: shimmer 3s infinite;
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item:hover::before {
+  opacity: 1;
+}
+
+.skill-icon {
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+  transform: scale(1.1);
+}
+
+.project-card {
+  animation: fadeIn 0.8s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #4a6cf7, #61DAFB);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.testimony-container {
+  animation: fadeIn 1s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimony-text {
+  position: relative;
+}
+
+.testimony-text::before {
+  content: '"';
+  font-size: 60px;
+  color: #f0f0f0;
+  opacity: 0.5;
+  position: absolute;
+  top: -20px;
+  left: -15px;
+}
+
+.contact-container {
+  animation: fadeIn 1s ease;
+}
+
+/* Staggered Animation for Skills */
+.skills-container .skill-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.skills-container .skill-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.skills-container .skill-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.skills-container .skill-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.skills-container .skill-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Staggered Animation for Projects */
+.projects-container .project-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.projects-container .project-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.projects-container .project-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.projects-container .project-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Button Hover Effects */
+.btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+}
+
+.contact-btn:hover {
+  background-color: #3a5ce5;
+}
+
+/* Form Input Focus Effects */
+.form-group input,
+.form-group textarea {
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.2);
+}
+
+/* Submit Button Animation */
+.submit-btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(74, 108, 247, 0.3);
+}
+
+.submit-btn:hover::before {
+  transform: translateX(0);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Custom animations for specific elements */
+.project-tech .tech-tag {
+  transition: all 0.3s ease;
+}
+
+.project-tech .tech-tag:hover {
+  background-color: #4a6cf7;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.project-link {
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  color: #3a5ce5;
+  transform: translateX(3px);
+}
+
+/* Form field animations */
+.form-group input,
+.form-group textarea {
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  transform: translateY(-3px);
+}
+
+/* Animate on scroll */
+.animate-visible {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Parallax effect for profile image */
+@keyframes float-shadow {
+  0% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.profile-image-container {
+  animation: float 6s ease-in-out infinite, float-shadow 6s ease-in-out infinite;
+}
+
+/* Enhanced button animations */
+.skills-btn, .testimony-btn, .contact-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.skills-btn::after, .testimony-btn::after, .contact-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+
+.skills-btn:hover::after, .testimony-btn:hover::after, .contact-btn:hover::after {
+  transform: scaleY(1);
+}
