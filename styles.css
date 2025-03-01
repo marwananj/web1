@@ -21,15 +21,19 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 #app {
   width: 100%;
   margin: 0 auto;
+  max-width: 1000px;
 }
 
 .portfolio-container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -39,23 +43,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20;
-  margin-bottom: 20px;
-  animation: fadeIn 1s ease;
+  padding: 10px 0;
+  margin-bottom: 40px;
 }
 
 .name {
   font-weight: 600;
   font-size: 18px;
-  margin-left: 225px;
-  margin-top: 20px;
-  animation: slideInLeft 1s ease;
 }
 
 .social-links {
   display: flex;
   gap: 15px;
-  animation: slideInRight 1s ease;
 }
 
 .social-link {
@@ -65,13 +64,23 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #4a6cf7;
 }
 
 .email-btn {
   background-color: #333;
-  color: white;
+  color: white !important;
   padding: 5px 10px;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.email-btn:hover {
+  background-color: #4a6cf7;
 }
 
 /* Main Content Styles */
@@ -79,21 +88,22 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   position: relative;
 }
 
 .content-left {
   width: 60%;
-  max-width: 600px;
-  margin-left: 225px;
-  animation: slideInLeft 1.2s ease;
+  max-width: 500px;
 }
 
 .title {
   font-size: 2.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-weight: 700;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .wave {
@@ -138,18 +148,22 @@ body {
   color: #4a6cf7;
 }
 
-.skills-btn {
-  border-color: #4a6cf7;
+/* Updated button styles to match the reference image */
+.skills-btn, .testimony-btn, .contact-btn {
+  border: 1px solid #4a6cf7;
+  background-color: transparent;
+  color: #4a6cf7;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
 }
 
-.testimony-btn {
-  border-color: #4a6cf7;
-}
-
-.contact-btn {
-  background-color: #4a6cf7;
-  color: white;
-  border-color: #4a6cf7;
+.skills-btn:hover, .testimony-btn:hover, .contact-btn:hover {
+  background-color: rgba(74, 108, 247, 0.1);
 }
 
 .btn i {
@@ -161,19 +175,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: slideInRight 1.2s ease;
 }
 
 .profile-image-container {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   background-color: #f0f0f0;
-  margin-right: -70px;
-  margin-top: -0px;
-  animation: fadeIn 1.5s ease, float 6s ease-in-out infinite;
 }
 
 .profile-image {
@@ -187,16 +197,15 @@ body {
   text-align: center;
   padding: 0;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 60px;
   background-color: #f0f0f0;
-  animation: fadeIn 1.5s ease;
 }
 
 .section-title {
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-weight: 700;
-  animation: slideUp 1s ease;
+  color: #333;
 }
 
 .section-description {
@@ -204,13 +213,13 @@ body {
   margin: 0 auto 30px;
   color: #666;
   font-size: 0.95rem;
-  animation: fadeIn 1.5s ease;
+  text-align: center;
 }
 
 .skills-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 15px;
   flex-wrap: wrap;
   margin-top: 30px;
 }
@@ -225,7 +234,7 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
-  animation: fadeIn 0.8s ease both;
+  min-width: 110px;
 }
 
 .skill-icon {
@@ -268,14 +277,13 @@ body {
 
 /* Projects Section Styles */
 .projects-section {
-  padding: 50px 0;
+  padding: 0 0 50px 0;
   text-align: center;
-  animation: fadeIn 1.5s ease;
 }
 
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
   margin-top: 40px;
 }
@@ -286,7 +294,6 @@ body {
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeIn 0.8s ease both;
 }
 
 .project-card:hover {
@@ -295,7 +302,7 @@ body {
 }
 
 .project-image {
-  height: 200px;
+  height: 180px;
   overflow: hidden;
 }
 
@@ -359,16 +366,15 @@ body {
 
 /* Testimony Section Styles */
 .testimony-section {
-  padding: 50px 0;
+  padding: 0 0 50px 0;
   text-align: center;
   background-color: #f0f0f0;
   position: relative;
-  animation: fadeIn 1.5s ease;
 }
 
 .testimony-section .section-title {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .testimony-wrapper {
@@ -377,7 +383,6 @@ body {
   margin: 0 auto;
   align-items: flex-start;
   position: relative;
-  animation: fadeIn 1.8s ease;
 }
 
 .testimony-image {
@@ -388,7 +393,6 @@ body {
   flex-shrink: 0;
   position: relative;
   z-index: 2;
-  animation: fadeIn 1s ease, float 6s ease-in-out infinite;
 }
 
 .testimony-image img {
@@ -446,15 +450,14 @@ body {
 
 /* Contact Section Styles */
 .contact-section {
-  padding: 50px 0;
+  padding: 0 0 50px 0;
   text-align: left;
   background-color: #f0f0f0;
-  animation: fadeIn 1.5s ease;
 }
 
 .contact-section .section-title {
   color: #333;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-weight: 700;
   text-align: center;
 }
@@ -464,7 +467,6 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   gap: 50px;
-  animation: fadeIn 1.8s ease;
   background-color: transparent;
   padding: 0;
   border-radius: 0;
@@ -522,6 +524,12 @@ body {
   outline: none;
 }
 
+/* Phone input styles */
+.phone-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .phone-input {
   display: flex;
   align-items: center;
@@ -539,8 +547,8 @@ body {
   padding: 0 10px;
   background-color: #f5f5f5;
   border-right: 2px solid #4a6cf7;
-  cursor: pointer;
   height: 46px;
+  cursor: pointer;
 }
 
 .flag-icon {
@@ -552,20 +560,22 @@ body {
   border: none;
   flex: 1;
   height: 46px;
+  padding: 0 10px;
+  outline: none;
 }
 
 .country-dropdown {
   position: absolute;
-  top: 100%;
+  top: 46px;
   left: 0;
   width: 100%;
-  max-height: 200px;
+  max-height: 250px;
   overflow-y: auto;
   background-color: white;
   border: 2px solid #4a6cf7;
   border-top: none;
   border-radius: 0 0 6px 6px;
-  z-index: 10;
+  z-index: 1000;
   display: none;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -573,14 +583,22 @@ body {
 .country-option {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
+  padding: 10px 15px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  border-bottom: 1px solid #eee;
 }
 
 .country-option:hover {
   background-color: #f0f5ff;
+}
+
+.country-option:last-child {
+  border-bottom: none;
+}
+
+.country-option img {
+  margin-right: 10px;
 }
 
 .submit-btn {
@@ -601,21 +619,51 @@ body {
 .submit-btn:hover {
   background-color: #3a5ce5;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+  box-shadow: 0 5px 15px rgba(74, 108, 247, 0 .3);
 }
 
 .submit-btn:active {
   transform: translateY(0);
 }
 
+/* Form status message */
+.form-status {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  display: none;
+}
+
+.form-status.success {
+  display: block;
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+}
+
+.form-status.error {
+  display: block;
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+  border: 1px solid #F44336;
+}
+
+.form-status.sending {
+  display: block;
+  background-color: rgba(74, 108, 247, 0.1);
+  color: #4a6cf7;
+  border: 1px solid #4a6cf7;
+}
+
 /* Footer Styles */
 .footer {
   text-align: center;
   padding: 20px 0;
-  margin-top: 50px;
+  margin-top: 30px;
   color: #777;
   font-size: 0.9rem;
-  animation: fadeIn 2s ease;
 }
 
 /* Responsive Styles */
@@ -626,26 +674,24 @@ body {
   
   .content-left {
     width: 100%;
-    text-align: center;
+    order: 2;
+    text-align: left;
     margin-bottom: 30px;
-    margin-left: 0;
   }
   
   .content-right {
     width: 100%;
+    order: 1;
+    margin-bottom: 30px;
   }
   
   .buttons {
-    justify-content: center;
+    justify-content: flex-start;
   }
   
   .header {
-    flex-direction: column;
+    flex-direction: row;
     gap: 15px;
-  }
-
-  .name {
-    margin-left: 0;
   }
 
   .testimony-wrapper {
@@ -669,6 +715,33 @@ body {
 
   .projects-container {
     grid-template-columns: 1fr;
+  }
+  
+  .profile-image-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: 2rem;
+    background-color: rgba(74, 108, 247, 0.1);
+  }
+  
+  .social-links {
+    gap: 10px;
+  }
+  
+  .social-link {
+    font-size: 0;
+  }
+  
+  .social-link i {
+    font-size: 16px;
+  }
+  
+  .email-btn {
+    padding: 5px 10px;
   }
 }
 
@@ -725,42 +798,4 @@ body {
   100% {
     transform: translateY(0px);
   }
-}
-
-/* Staggered Animation for Skills */
-.skills-container .skill-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.skills-container .skill-item:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.skills-container .skill-item:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.skills-container .skill-item:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.skills-container .skill-item:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-/* Staggered Animation for Projects */
-.projects-container .project-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.projects-container .project-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.projects-container .project-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.projects-container .project-card:nth-child(4) {
-  animation-delay: 0.4s;
 }
