@@ -190,14 +190,28 @@ body {
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .skills-btn:hover, .testimony-btn:hover, .contact-btn:hover {
   background-color: rgba(74, 108, 247, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(74, 108, 247, 0.2);
+}
+
+.skills-btn:active, .testimony-btn:active, .contact-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(74, 108, 247, 0.1);
 }
 
 .btn i {
   font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.skills-btn:hover i, .testimony-btn:hover i, .contact-btn:hover i {
+  transform: scale(1.2);
 }
 
 .content-right {
@@ -415,22 +429,39 @@ body {
   position: relative;
 }
 
-.testimony-image {
-  width: 120px;
-  height: 120px;
-  overflow: hidden;
+.testimony-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-right: 30px;
   flex-shrink: 0;
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 
-.testimony-image img {
-  width: 100%;
-  height: 100%;
+.testimony-avatar {
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.testimony-author-info {
+  text-align: center;
+}
+
+.author-name {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.author-title {
+  color: #777;
+  font-size: 0.9rem;
 }
 
 .testimony-container {
@@ -456,26 +487,9 @@ body {
   font-style: italic;
   color: #555;
   line-height: 1.6;
-  margin-bottom: 20px;
   position: relative;
   text-align: left;
   padding: 0;
-}
-
-.testimony-author {
-  margin-top: 20px;
-  text-align: left;
-}
-
-.author-name {
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.author-title {
-  color: #777;
-  font-size: 0.9rem;
 }
 
 /* Contact Section Styles */
@@ -782,14 +796,17 @@ body {
     padding: 0 15px;
   }
   
-  .testimony-image {
+  .testimony-image-container {
     margin: 0 auto 20px;
+    width: auto;
+  }
+  
+  .testimony-avatar {
     width: 100px;
     height: 100px;
   }
   
-  .testimony-content,
-  .testimony-author {
+  .testimony-content {
     text-align: center;
   }
   
