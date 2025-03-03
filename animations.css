@@ -114,14 +114,52 @@
   50% { opacity: 0; }
 }
 
+/* Page Entrance Animation */
+@keyframes pageEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Zoom In Animation */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Rotate In Animation */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+
 /* Apply Animations to Elements */
 .header {
-  animation: fadeIn 1s ease;
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
 }
 
 .name {
   position: relative;
-  animation: fadeIn 1s ease;
+  animation: slideInLeft 0.8s ease 0.2s forwards;
+  opacity: 0;
 }
 
 .name::after {
@@ -141,7 +179,8 @@
 }
 
 .social-links {
-  animation: fadeIn 1s ease 0.3s both;
+  animation: slideInRight 0.8s ease 0.4s forwards;
+  opacity: 0;
 }
 
 .social-link {
@@ -181,15 +220,17 @@
 }
 
 .content-left {
-  animation: slideInLeft 1s ease;
+  animation: slideInLeft 1s ease 0.6s forwards;
+  opacity: 0;
 }
 
 .content-right {
-  animation: slideInRight 1s ease;
+  animation: zoomIn 1.2s ease 0.8s forwards;
+  opacity: 0;
 }
 
 .profile-image-container {
-  animation: fadeIn 1s ease, float 6s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
   position: relative;
 }
 
@@ -206,7 +247,8 @@
 }
 
 .title {
-  animation: slideUp 1s ease 0.2s both;
+  animation: slideUp 1s ease 1s forwards;
+  opacity: 0;
   position: relative;
 }
 
@@ -221,20 +263,22 @@
 }
 
 .description {
-  animation: slideUp 1s ease 0.4s both;
+  animation: slideUp 1s ease 1.2s forwards;
+  opacity: 0;
 }
 
 .buttons {
-  animation: slideUp 1s ease 0.6s both;
+  animation: slideUp 1s ease 1.4s forwards;
+  opacity: 0;
 }
 
 .section-title {
-  animation: slideUp 0.8s ease both;
+  animation: slideUp 0.8s ease 0.2s both;
   position: relative;
 }
 
 .section-description {
-  animation: fadeIn 1s ease 0.2s both;
+  animation: fadeIn 1s ease 0.4s both;
 }
 
 .skill-item {
@@ -324,6 +368,20 @@
   left: -15px;
 }
 
+.testimony-image-container {
+  animation: fadeIn 1s ease 0.2s forwards;
+  opacity: 0;
+}
+
+.testimony-avatar {
+  animation: float 6s ease-in-out infinite;
+}
+
+.testimony-author-info {
+  animation: slideUp 0.8s ease 0.4s forwards;
+  opacity: 0;
+}
+
 .contact-container {
   animation: fadeIn 1s ease;
 }
@@ -355,15 +413,15 @@
 }
 
 .projects-container .project-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.projects-container .project-card:nth-child(3) {
   animation-delay: 0.3s;
 }
 
+.projects-container .project-card:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
 .projects-container .project-card:nth-child(4) {
-  animation-delay: 0.4s;
+  animation-delay: 0.7s;
 }
 
 /* Button Hover Effects */
@@ -519,4 +577,53 @@
 
 .skills-btn:hover::after, .testimony-btn:hover::after, .contact-btn:hover::after {
   transform: scaleY(1);
+}
+
+/* Page load animation for sections */
+.skills-section {
+  animation: fadeIn 1s ease 1.6s forwards;
+  opacity: 0;
+}
+
+.projects-section {
+  animation: fadeIn 1s ease 1.8s forwards;
+  opacity: 0;
+}
+
+.testimony-section {
+  animation: fadeIn 1s ease 2s forwards;
+  opacity: 0;
+}
+
+.contact-section {
+  animation: fadeIn 1s ease 2.2s forwards;
+  opacity: 0;
+}
+
+.footer {
+  animation: fadeIn 1s ease 2.4s forwards;
+  opacity: 0;
+}
+
+/* Wave animation for emoji */
+.wave {
+  display: inline-block;
+  animation: wave 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Initial page load animation */
+.portfolio-container {
+  animation: pageEntrance 0.8s ease-out forwards;
 }
